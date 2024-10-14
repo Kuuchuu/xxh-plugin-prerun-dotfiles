@@ -1,3 +1,16 @@
-#
-# Try awesome xonshrc - https://github.com/anki-code/awesome-xonshrc/blob/main/xonshrc
-#
+aliases['please'] = 'sudo'
+aliases['timers'] = 'systemctl list-timers'
+
+# XONSH WEBCONFIG START
+$XONSH_COLOR_STYLE = 'dracula'
+xontrib load coreutils
+# XONSH WEBCONFIG END
+
+xontrib load rc_leora
+
+execx($(starship init xonsh))
+
+#if $XONSH_INTERACTIVE:
+    #![bash /system_summary.sh]
+
+execx($(zoxide init xonsh), 'exec', __xonsh__.ctx, filename='zoxide')
